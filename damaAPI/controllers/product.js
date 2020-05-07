@@ -16,3 +16,31 @@ exports.productGetAll = (req, res) => {
             error: err
         }));
 }
+
+exports.newProduct = (req, res) => {
+    const product = new Product({
+        title: req.body.title,
+        description: req.body.description,
+        type: req.body.type,
+        family: req.body.family,
+        abv: req.body.abv,
+        ibu: req.body.ibu,
+        malts: req.body.malts,
+        hops: req.body.hops,
+        medals: req.body.medals,
+        imageBottle: req.body.imageBottle,
+        imageLogo: req.body.imageLogo
+    });
+
+    product.save()
+        .then(result => {
+            res.status(201).json({
+                message: "Created product succesfully"
+            });
+        })
+        .catch(err => {
+            res.status(500).json({
+                error: err
+            });
+        });
+}

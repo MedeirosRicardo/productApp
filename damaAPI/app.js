@@ -9,6 +9,7 @@ mongoose.connect(`mongodb+srv://${process.env.dbUser}:${process.env.dbPass}@clus
 );
 
 app.use(express.json());
+app.use(express.static('public'));
 
 app.use('/products', productRoutes);
 
