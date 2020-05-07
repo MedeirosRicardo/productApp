@@ -4,7 +4,7 @@ const Product = require('../models/product');
 const page = 1;
 const perPage = 5;
 
-exports.productGetAll = (req, res, next) => {
+exports.productGetAll = (req, res) => {
     Product.find()
         .skip(page * perPage)
         .limit(perPage)
