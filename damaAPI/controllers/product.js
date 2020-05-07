@@ -6,9 +6,8 @@ const perPage = 5;
 
 exports.productGetAll = (req, res) => {
     Product.find()
-        .skip(page * perPage)
+        .skip((page - 1) * perPage)
         .limit(perPage)
-        .exec()
         .then(products => {
             res.status(200).json(products);
         })

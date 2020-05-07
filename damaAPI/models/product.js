@@ -12,7 +12,7 @@ const productSchema = new Schema({
     malts: { type: [String], required: true },
     hops: { type: [String], required: true },
     medals: { type: [String] },
-    imageBottle: { type: String, required: true },
+    imageBottle: { type: String },
     imageLogo: { type: String }
 });
 
