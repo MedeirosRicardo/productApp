@@ -1,18 +1,23 @@
 import React from 'react';
-import { View, Image, Text, TouchableOpacity } from 'react-native';
+import { Image, Text, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import styles from './styles';
 
-export default class MenuItem extends React.Component {
-    render() {
-        return (
-            <TouchableOpacity style={styles.menuItem}>
-                <Image
-                    source={this.props.itemImage}
-                    style={styles.image}
-                />
-                <Text style={styles.menuText}>{this.props.itemText}</Text>
-            </TouchableOpacity>
-        );
-    }
+export default function MenuItem(props) {
+
+    const navigation = useNavigation();
+
+    return (
+        <TouchableOpacity
+            style={styles.menuItem}
+            onPress={() => navigation.navigate(props.itemRoute)}
+        >
+            <Image
+                source={props.itemImage}
+                style={styles.image}
+            />
+            <Text style={styles.menuText}>{props.itemText}</Text>
+        </TouchableOpacity>
+    );
 }
