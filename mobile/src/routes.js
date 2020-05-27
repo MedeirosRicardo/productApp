@@ -3,7 +3,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import Home from './pages/Home';
+import AboutHistory from './pages/AboutHistory';
+import AboutFactory from './pages/AboutFactory';
 import ProductList from './pages/ProductList';
+import ProductDetails from './pages/ProductDetails';
 
 const AppStack = createStackNavigator();
 

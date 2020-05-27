@@ -14,22 +14,22 @@ export default function Home() {
                 <MenuItem
                     itemImage={require('../../assets/menu1.png')}
                     itemText={'CERVEJAS'}
-                    itemRoute={'Cervejas'}
+                    itemRoute={'ProductList'}
                 />
                 <MenuItem
                     itemImage={require('../../assets/menu2.png')}
                     itemText={'HISTÓRIA'}
-                    itemRoute={'Cervejas'}
+                    itemRoute={'AboutHistory'}
                 />
                 <MenuItem
                     itemImage={require('../../assets/menu3.png')}
                     itemText={'FÁBRICA'}
-                    itemRoute={'Cervejas'}
+                    itemRoute={'AboutFactory'}
                 />
                 <MenuItem
                     itemImage={require('../../assets/menu4.png')}
                     itemText={'LOJA'}
-                    itemRoute={'Cervejas'}
+                    itemRoute={'Home'}
                 />
             </View>
         </View>
