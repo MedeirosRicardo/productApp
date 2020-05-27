@@ -1,13 +1,28 @@
 import React from 'react';
-import { View, Image, Text } from 'react-native';
+import { View, Image, Text, TouchableOpacity } from 'react-native';
+import { Feather } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 import styles from './styles';
 
 export default function AboutHistory() {
+
+    const navigation = useNavigation();
+
+    function navigateBack() {
+        navigation.goBack();
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.header}>
                 <Image source={require('../../assets/logo.png')} />
+                <TouchableOpacity 
+                    style={styles.leftArrow}
+                    onPress={navigateBack}
+                >
+                    <Feather name="arrow-left" size={28} color="#000000" />
+                </TouchableOpacity>
             </View>
             <View style={styles.bottomContainer}>
                 <View style={styles.titleContainer}>

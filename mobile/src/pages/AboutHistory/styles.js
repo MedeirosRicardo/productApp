@@ -39,5 +39,11 @@ export default StyleSheet.create({
         textAlign: 'justify',
         lineHeight: 20,
         paddingBottom: 10
+    },
+
+    leftArrow: {
+        position: 'absolute',
+        top: 35,
+        left: 20
     }
 });
