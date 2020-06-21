@@ -13,7 +13,8 @@ const productSchema = new Schema({
     hops: { type: [String], required: true },
     medals: { type: [String] },
     imageBottle: { type: String },
-    imageLogo: { type: String }
+    imageLogo: { type: String },
+    color: { type: String }
 });
 
 module.exports = mongoose.model('Product', productSchema);
