@@ -39,7 +39,8 @@ exports.newProduct = (req, res) => {
         hops: req.body.hops,
         medals: req.body.medals,
         imageBottle: req.body.imageBottle,
-        imageLogo: req.body.imageLogo
+        imageLogo: req.body.imageLogo,
+        color: req.body.color
     });
 
     product.save()
