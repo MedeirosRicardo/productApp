@@ -14,7 +14,6 @@ export default StyleSheet.create({
     },
 
     bottomContainer: {
-        
         marginTop: 20
     },
 
@@ -39,15 +38,20 @@ export default StyleSheet.create({
     productContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginBottom: 30
+        marginBottom: 40
     },
 
     productLeft: {
-        width: '25%'
+        width: '25%',
+        marginTop: 15
+
     },
 
     productLeftSquare: {
-        
+        height: 225,
+        width: 70,
+        position: 'absolute',
+        bottom: 30
     },
 
     productLeftImage: {

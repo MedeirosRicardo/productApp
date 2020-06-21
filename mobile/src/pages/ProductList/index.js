@@ -29,9 +29,9 @@ export default function ProductList() {
             </View>
             <ScrollView style={styles.bottomContainer} >
 
-                <View style={styles.productContainer}>
+            <View style={styles.productContainer}>
                     <View style={styles.productLeft}>
-                        <Text style={styles.productLeftSquare}>Square</Text>
+                        <View style={{...styles.productLeftSquare, backgroundColor: '#27AE60'}}></View>
                         <Image
                             style={styles.productLeftImage}
                             source={require('../../assets/american-lager-355.png')}
@@ -48,7 +48,7 @@ export default function ProductList() {
 
                 <View style={styles.productContainer}>
                     <View style={styles.productLeft}>
-                        <Text style={styles.productLeftSquare}>Square</Text>
+                        <View style={{...styles.productLeftSquare, backgroundColor: '#a3a3a3'}}></View>
                         <Image
                             style={styles.productLeftImage}
                             source={require('../../assets/american-lager-355.png')}
@@ -64,7 +64,7 @@ export default function ProductList() {
                 </View>
                 <View style={styles.productContainer}>
                     <View style={styles.productLeft}>
-                        <Text style={styles.productLeftSquare}>Square</Text>
+                        <View style={{...styles.productLeftSquare, backgroundColor: '#f5a460'}}></View>
                         <Image
                             style={styles.productLeftImage}
                             source={require('../../assets/american-lager-355.png')}
