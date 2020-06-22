@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, Image, Text, FlatList, ScrollView, TouchableOpacity } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Image, Text, FlatList, TouchableOpacity } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
@@ -9,9 +9,18 @@ export default function ProductList() {
 
     const navigation = useNavigation();
 
+    const [products, setProducts] = useState([]);
+
     function navigateBack() {
         navigation.goBack();
     }
+
+    useEffect(() => {
+        fetch('https://arnin-test.herokuapp.com/products')
+            .then(response => response.json())
+            .then(json => setProducts(json))
+            .catch(error => console.error(error))
+    }, []);
 
     return (
         <View style={styles.container}>
@@ -27,60 +36,31 @@ export default function ProductList() {
                     <Text style={styles.title}>CERVEJAS</Text>
                 </View>
             </View>
-            <ScrollView style={styles.bottomContainer} >
 
-            <View style={styles.productContainer}>
-                    <View style={styles.productLeft}>
-                        <View style={{...styles.productLeftSquare, backgroundColor: '#27AE60'}}></View>
-                        <Image
-                            style={styles.productLeftImage}
-                            source={require('../../assets/american-lager-355.png')}
-                        />
+            <FlatList
+                style={styles.bottomContainer}
+                data={products}
+                keyExtractor={product => product.id}
+                showsVerticalScrollIndicator={false}
+                renderItem={({ item: product }) => (
+                    <View style={styles.productContainer}>
+                        <View style={styles.productLeft}>
+                            <View style={{ ...styles.productLeftSquare, backgroundColor: product.color }}></View>
+                            <Image
+                                style={styles.productLeftImage}
+                                source={{ uri: `https://arnin-test.herokuapp.com/images/${product.imageBottle}` }}
+                            />
+                        </View>
+                        <View style={styles.productRight}>
+                            <Text style={styles.productTitle}>{product.title}</Text>
+                            <Text style={styles.productText}>{product.type}</Text>
+                            <TouchableOpacity style={styles.productButton}>
+                                <Text style={styles.productButtonText}>SAIBA MAIS</Text>
+                            </TouchableOpacity>
+                        </View>
                     </View>
-                    <View style={styles.productRight}>
-                        <Text style={styles.productTitle}>American Lager</Text>
-                        <Text style={styles.productText}>American Premium Lager</Text>
-                        <TouchableOpacity style={styles.productButton}>
-                            <Text style={styles.productButtonText}>SAIBA MAIS</Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-
-                <View style={styles.productContainer}>
-                    <View style={styles.productLeft}>
-                        <View style={{...styles.productLeftSquare, backgroundColor: '#a3a3a3'}}></View>
-                        <Image
-                            style={styles.productLeftImage}
-                            source={require('../../assets/american-lager-355.png')}
-                        />
-                    </View>
-                    <View style={styles.productRight}>
-                        <Text style={styles.productTitle}>American Lager</Text>
-                        <Text style={styles.productText}>American Premium Lager</Text>
-                        <TouchableOpacity style={styles.productButton}>
-                            <Text style={styles.productButtonText}>SAIBA MAIS</Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-                <View style={styles.productContainer}>
-                    <View style={styles.productLeft}>
-                        <View style={{...styles.productLeftSquare, backgroundColor: '#f5a460'}}></View>
-                        <Image
-                            style={styles.productLeftImage}
-                            source={require('../../assets/american-lager-355.png')}
-                        />
-                    </View>
-                    <View style={styles.productRight}>
-                        <Text style={styles.productTitle}>American Lager</Text>
-                        <Text style={styles.productText}>American Premium Lager</Text>
-                        <TouchableOpacity style={styles.productButton}>
-                            <Text style={styles.productButtonText}>SAIBA MAIS</Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-
-
-            </ScrollView>
+                )}
+            />
 
         </View>
 
