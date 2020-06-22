@@ -10,16 +10,34 @@ export default function ProductList() {
     const navigation = useNavigation();
 
     const [products, setProducts] = useState([]);
+    const [page, setPage] = useState(1);
+    const [loading, setLoading] = useState(false);
 
     function navigateBack() {
         navigation.goBack();
     }
 
+    async function loadProducts() {
+        if (loading) {
+            return;
+        }
+
+        setLoading(true);
+
+        try {
+            const data = await fetch(`https://arnin-test.herokuapp.com/products?page=${page}`);
+            const json = await data.json();
+
+            setProducts([...products, ...json]);
+            setPage(page + 1);
+            setLoading(false)
+        } catch {
+            console.error(error);
+        }
+    }
+
     useEffect(() => {
-        fetch('https://arnin-test.herokuapp.com/products')
-            .then(response => response.json())
-            .then(json => setProducts(json))
-            .catch(error => console.error(error))
+        loadProducts();
     }, []);
 
     return (
@@ -42,6 +60,8 @@ export default function ProductList() {
                 data={products}
                 keyExtractor={product => product._id}
                 showsVerticalScrollIndicator={false}
+                onEndReached={loadProducts}
+                onEndReachedThreshold={0.5}
                 renderItem={({ item: product }) => (
                     <View style={styles.productContainer}>
                         <View style={styles.productLeft}>
