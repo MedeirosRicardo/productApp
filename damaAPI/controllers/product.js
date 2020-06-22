@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 const Product = require('../models/product');
 
-const page = 1;
 const perPage = 5;
 
 exports.productGetAll = (req, res) => {
+    const { page = 1} = req.query;
     Product.find()
         .skip((page - 1) * perPage)
         .limit(perPage)
