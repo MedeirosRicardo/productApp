@@ -49,6 +49,7 @@ export default function ProductList() {
                             <Image
                                 style={styles.productLeftImage}
                                 source={{ uri: `https://arnin-test.herokuapp.com/images/${product.imageBottle}` }}
+                                fadeDuration={0}
                             />
                         </View>
                         <View style={styles.productRight}>
