@@ -40,7 +40,7 @@ export default function ProductList() {
             <FlatList
                 style={styles.bottomContainer}
                 data={products}
-                keyExtractor={product => product.id}
+                keyExtractor={product => product._id}
                 showsVerticalScrollIndicator={false}
                 renderItem={({ item: product }) => (
                     <View style={styles.productContainer}>
