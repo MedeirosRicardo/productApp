@@ -17,6 +17,10 @@ export default function ProductList() {
         navigation.goBack();
     }
 
+    function navigateToDetails(product) {
+        navigation.navigate('ProductDetails', { product });
+    }
+
     async function loadProducts() {
         if (loading) {
             return;
@@ -26,9 +30,9 @@ export default function ProductList() {
 
         try {
             const data = await fetch(`https://arnin-test.herokuapp.com/products?page=${page}`);
-            const json = await data.json();
+            const productList = await data.json();
 
-            setProducts([...products, ...json]);
+            setProducts([...products, ...productList]);
             setPage(page + 1);
             setLoading(false)
         } catch {
@@ -75,7 +79,10 @@ export default function ProductList() {
                         <View style={styles.productRight}>
                             <Text style={styles.productTitle}>{product.title}</Text>
                             <Text style={styles.productText}>{product.type}</Text>
-                            <TouchableOpacity style={styles.productButton}>
+                            <TouchableOpacity
+                                style={styles.productButton}
+                                onPress={() => navigateToDetails(product)}
+                            >
                                 <Text style={styles.productButtonText}>SAIBA MAIS</Text>
                             </TouchableOpacity>
                         </View>
