@@ -25,16 +25,12 @@ export default function ProductDetails() {
         >
           <Feather name="arrow-left" size={28} color="#000000" />
         </TouchableOpacity>
-        <View style={styles.bottomContainer}>
 
+        <View style={styles.bottomHeader}>
           <View style={styles.headerLeft}>
-            <View style={styles.titleContainer}>
-              <Text style={styles.title}>{product.title}</Text>
-            </View>
-            <View style={styles.typeContainer}>
-              <Text style={styles.type}>{product.type}</Text>
-            </View>
-
+            <Text style={styles.productTitle}>{product.title}</Text>
+            <View style={styles.line}></View>
+            <Text style={styles.productType}>{product.type}</Text>
           </View>
 
           <View style={styles.headerRight}>
@@ -43,9 +39,17 @@ export default function ProductDetails() {
               source={require('../../assets/logo.png')}
             />
           </View>
+        </View>       
+      </View>
 
+      <View style={styles.details}>
+        <Text style={styles.detailsTitle}>Detalhes</Text>
+        <View style={styles.detailsItems}>
+            <Text>Test 1</Text>
+            <Text>Test 1</Text>
         </View>
       </View>
+
     </View>
   );
 }

@@ -78,6 +78,7 @@ export default function ProductList() {
                         </View>
                         <View style={styles.productRight}>
                             <Text style={styles.productTitle}>{product.title}</Text>
+                            <View style={styles.line}></View>
                             <Text style={styles.productText}>{product.type}</Text>
                             <TouchableOpacity
                                 style={styles.productButton}
