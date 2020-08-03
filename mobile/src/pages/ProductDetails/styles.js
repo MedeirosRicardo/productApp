@@ -65,9 +65,30 @@ export default StyleSheet.create({
   },
 
   detailsItems: {
-    backgroundColor: 'red',
-    left: 10,
+    top: 10,
     width: '75%'
+  },
+
+  item: {
+    flexDirection: 'row',
+    margin: 10
+  },
+
+  itemText: {
+    fontSize: 18,
+    textAlignVertical: 'center',
+    marginRight: 10
+  },
+
+  circle: {
+    width: 39,
+    height: 39,
+    borderRadius: 50,
+    borderColor: 'black',
+    borderWidth: 2,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: 20
   }
 
 })
