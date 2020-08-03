@@ -61,7 +61,7 @@ export default StyleSheet.create({
 
   detailsTitle: {
     fontSize: 24,
-    fontWeight: '600'
+    fontWeight: '500'
   },
 
   detailsItems: {
@@ -71,13 +71,24 @@ export default StyleSheet.create({
 
   item: {
     flexDirection: 'row',
-    margin: 10
+    marginBottom: 10,
+    marginTop: 10,
+    width: '65%'
   },
 
   itemText: {
     fontSize: 18,
     textAlignVertical: 'center',
     marginRight: 10
+  },
+
+  unitItem: {
+    flexDirection: 'row',
+    flexWrap: 'wrap'
+  },
+
+  unitItemText: {
+    fontSize: 18
   },
 
   circle: {
@@ -89,6 +100,29 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginRight: 20
+  },
+
+  description: {
+    flex: 1,
+    left: 32,
+    top: 10,
+    marginBottom: 20
+  },
+
+  descriptionTitle: {
+    fontSize: 24,
+    top: 15,
+    marginBottom: 15,
+    fontWeight: '500'
+  },
+
+  descriptionText: {
+    fontSize: 14,
+    lineHeight: 18,
+    top: 10,
+    width: '80%',
+    textAlign: 'justify',
+    paddingBottom: 10
   }
 
 })
