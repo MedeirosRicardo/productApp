@@ -16,7 +16,7 @@ export default function ProductDetails() {
   }
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity
           style={styles.leftArrow}
@@ -40,6 +40,14 @@ export default function ProductDetails() {
           </View>
         </View>
       </View>
+      
+      <View style={{ ...styles.productSquare, backgroundColor: product.color }}>
+        <Image
+          style={styles.productImage}
+          source={{ uri: `https://arnin-test.herokuapp.com/images/${product.imageBottle}` }}
+          fadeDuration={0}
+        />
+      </View>
 
       <View style={styles.details}>
         <Text style={styles.detailsTitle}>Detalhes</Text>
@@ -47,7 +55,7 @@ export default function ProductDetails() {
 
           <View style={styles.item}>
             <View style={styles.circle}>
-              <Feather name="percent" size={22} />
+              <Feather name="percent" size={20} />
             </View>
             <Text style={styles.itemText}>ABV:</Text>
             <Text style={styles.itemText}>{product.abv}%</Text>
@@ -76,7 +84,7 @@ export default function ProductDetails() {
             </View>
             <View style={styles.unitItem}>
               {product.malts.map((malt, index) => (
-                <Text style={styles.unitItemText} key={index}>{malt}{index === product.malts.length -1 ? '' : ', '}</Text>
+                <Text style={styles.unitItemText} key={index}>{malt}{index === product.malts.length - 1 ? '' : ', '}</Text>
               ))}
             </View>
           </View>
@@ -84,7 +92,7 @@ export default function ProductDetails() {
           <View style={styles.item}>
             <View style={styles.circle}>
               <MaterialCommunityIcons name="hops" size={35, 25} />
-            </View>  
+            </View>
             <View>
               <Text style={styles.itemText}>Lúpulos:</Text>
             </View>
@@ -100,12 +108,12 @@ export default function ProductDetails() {
 
       <View style={styles.description}>
         <Text style={styles.descriptionTitle}>Descrição</Text>
-        <ScrollView>
+      
           <Text style={styles.descriptionText}>{product.description}</Text>
-        </ScrollView>
+        
       </View>
 
 
-    </View>
+    </ScrollView>
   );
 }

@@ -61,7 +61,8 @@ export default StyleSheet.create({
 
   detailsTitle: {
     fontSize: 24,
-    fontWeight: '500'
+    fontWeight: '500',
+    marginTop: 16
   },
 
   detailsItems: {
@@ -79,7 +80,7 @@ export default StyleSheet.create({
   itemText: {
     fontSize: 18,
     textAlignVertical: 'center',
-    marginRight: 10
+    marginRight: 15
   },
 
   unitItem: {
@@ -122,7 +123,22 @@ export default StyleSheet.create({
     top: 10,
     width: '80%',
     textAlign: 'justify',
-    paddingBottom: 10
+    paddingBottom: 100
+  },
+
+  productSquare: {
+    height: 234,
+    width: 85,
+    position: 'absolute',
+    top: 190,
+    right: 0
+  },
+
+  productImage: {
+    width: 324,
+    height: 303,
+    right: 160,
+    top: -40
   }
 
 })
